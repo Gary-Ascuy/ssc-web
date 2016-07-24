@@ -1,3 +1,4 @@
+#! /usr/bin/env node
 
 //
 // Serial Servo Controller - Server
