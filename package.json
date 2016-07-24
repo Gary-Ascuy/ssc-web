@@ -1,0 +1,51 @@
+{
+  "name": "serial-servo-control-webapp",
+  "version": "0.0.1",
+  "description": "Serial Servo Controller (SSC) - Web Application",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"I hope this works that is the main reason to do not have tests xD JK I will put after\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Gary-Ascuy/ssc-web.git"
+  },
+  "keywords": [
+    "servo",
+    "control",
+    "ssc",
+    "board",
+    "robot",
+    "hexapod",
+    "serial",
+    "web",
+    "online",
+    "koa",
+    "remote"
+  ],
+  "author": "Gary Ascuy <gary.ascuy@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Gary-Ascuy/ssc-web/issues"
+  },
+  "homepage": "https://github.com/Gary-Ascuy/ssc-web#readme",
+  "os": [
+    "darwin",
+    "linux"
+  ],
+  "engines": {
+    "node": ">=4.4.7"
+  },
+  "dependencies": {
+    "babel-plugin-transform-async-to-generator": "^6.8.0",
+    "babel-register": "^6.11.5",
+    "koa": "^2.0.0",
+    "koa-convert": "^1.2.0",
+    "koa-static": "^2.0.0"
+  },
+  "preferGlobal": true,
+  "bin": {
+    "ssc-server": "./server/index.js",
+    "ssc-agent": "./agent/index.js"
+  }
+}

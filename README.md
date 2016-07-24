@@ -1,2 +1,1 @@
-# ssc-web
-Serial Servo Control - Web Aplication
+# Serial Servo Control - Web Application
