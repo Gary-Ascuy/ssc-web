@@ -1,0 +1,10 @@
+.console.menu .segment {
+  border-top: 5px solid;
+  border-radius: 10px 10px;
+  width: 100%;
+}
+
+.console.menu .segment .message {
+  max-height: 200px;
+  overflow-y: auto;
+}
