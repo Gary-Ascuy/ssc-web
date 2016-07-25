@@ -7,14 +7,19 @@ window.Client.io = io.connect();
 Client.MainConsole = React.createClass({
   getInitialState() {
     Client.io.on('command-result', (data) => {
-      const results = [data.result].concat(this.state.results);
-      this.setState({results: results});
+      this.state.results.push(data.result);
+      this.state.results = this.state.results.slice(-100)
+      this.setState({results: this.state.results});
+      setTimeout(function() {
+        const $target = $('.ui.message');
+        $target.animate({scrollTop: $target[0].scrollHeight}, 500);
+      }, 500)
     });
 
     return {command: '', results: []};
   },
-  handleCommandChange: function(e) {
-    this.setState({command: e.target.value});
+  handleCommandChange: function(evt) {
+    this.setState({command: evt.target.value});
   },
   handleSubmit(evt) {
     evt.preventDefault();
