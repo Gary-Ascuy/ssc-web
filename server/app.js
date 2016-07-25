@@ -39,8 +39,14 @@ app.use(ctx => {
   ctx.body = '<center><h1>Powered By Gary Ascuy {gary.ascuy@gmail.com}</h1></center>';
 });
 
-io.on( 'message', (ctx, data) => {
-  console.log(`message: ${ data }`);
+io.on('command-result', (ctx, data) => {
+  console.log('command-result', data);
+  io.broadcast('command-result', data);
+});
+
+io.on('command', (ctx, data) => {
+  console.log('command', data);
+  io.broadcast('command', data);
 });
 
 //

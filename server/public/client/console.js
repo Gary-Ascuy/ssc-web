@@ -6,7 +6,12 @@ window.Client.io = io.connect();
 //
 Client.MainConsole = React.createClass({
   getInitialState() {
-    return {command: ''};
+    Client.io.on('command-result', (data) => {
+      const results = [data.result].concat(this.state.results);
+      this.setState({results: results});
+    });
+
+    return {command: '', results: []};
   },
   handleCommandChange: function(e) {
     this.setState({command: e.target.value});
@@ -17,18 +22,24 @@ Client.MainConsole = React.createClass({
   },
   sendCommand() {
     const {command} = this.state;
-    console.log(this.state);
-    this.setState({command: ''});
-    window.Client.io.send(command);
+    if (command.trim().length) {
+      console.log(this.state);
+      this.setState({command: ''});
+      window.Client.io.emit('command', {command});
+    }
   },
   render() {
     return (
       <div className="ui basic segment">
         <div className="main console">
           <form className="ui form" onSubmit={this.handleSubmit}>
-            <div className="ui message">
-              <p>Execution results</p>
-            </div>
+            { this.state.results.length > 0 &&
+              <div className="ui message">
+                {this.state.results.map(function(value) {
+                  return <p>$ {value}</p>
+                })}
+              </div>
+            }
             <div className="ui icon input">
               <input type="text"
                 value={this.state.command}
