@@ -6,19 +6,19 @@ This project allow to control a Serial Servo Controller Board Remotely using web
 npm i --global serial-servo-control-webapp
 ```
 
-## Install as a developer 
+## Install as a developer
 
 ### Install dependencies
 ```
 $ npm install
 ```
 
-### Create symlink for ssc-server and ssc-agent commands 
+### Create symlink for ssc-server and ssc-agent commands
 ```
 $ npm link
 ```
 
-## Executes 
+## Executes
 
 ### Starts HTTP Server (Web Application)
 ```
@@ -32,7 +32,7 @@ $ PORT=6000 ssc-server
 ### Starts Agent
 ```
 # Starts the agent with default host (http://localhost:3666)
-$ ssc-server
+$ ssc-agent
 
 # OR Starts the agent with spesific host (http://localhost:6000)
 $ HOST=http://localhost:6000 ssc-agent
@@ -46,6 +46,6 @@ $ HOST=http://localhost:6000 ssc-agent
 > $move 0 500
 ```
 
-## Screenshoot 
+## Screenshoot
 ![Web Application](https://github.com/Gary-Ascuy/ssc-web/raw/master/assets/webapp-screenshot.png)
 
